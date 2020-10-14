@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logos/logo.png'
 import './LeftSideBar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart,faShoppingBag,faCommentAlt } from '@fortawesome/free-solid-svg-icons'
 
 const LeftSideBar = () => {
     return (
@@ -13,9 +15,9 @@ const LeftSideBar = () => {
 
                     <div className="container ml-5 mt-5">
 
-                        <Link style={{ textDecoration: 'none', color: 'black' }}> <p className='orderMenu'>Order</p></Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/serviceList'><p className='orderMenu'>Service List</p></Link>
-                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/review'> <p className='orderMenu'>Review</p></Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }}><p className='orderMenu'><FontAwesomeIcon icon={faShoppingCart} /> Order</p></Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/serviceList'><p className='orderMenu'><FontAwesomeIcon icon={faShoppingBag} /> Service List</p></Link>
+                        <Link style={{ textDecoration: 'none', color: 'black' }} to='/review'> <p className='orderMenu'><FontAwesomeIcon icon={faCommentAlt} /> Review</p></Link>
 
                     </div>
             

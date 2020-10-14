@@ -1,8 +1,14 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './OrderForm.css';
+import { useForm } from "react-hook-form";
 
 const OrderForm = () => {
+
+    const { register, handleSubmit, errors } = useForm();
+
+    const onSubmit = data =>
+     console.log(data);
 
     const { courseName } = useParams()
     return (
@@ -11,27 +17,32 @@ const OrderForm = () => {
 
             <div className='row formSection'>
                 <div className='col-md-8 py-5'>
-                    <form className='p-4'>
+                    <form className='p-4' onSubmit={handleSubmit(onSubmit)}>
                         <div class="form-group">
 
-                            <input type="text" name="name" class="form-control" id="exampleInputPassword1" placeholder="Your Name/Company name" />
+                            <input type="text" ref={register({ required: true })} name="name" class="form-control" id="exampleInputPassword1" placeholder="Your Name/Company name" />
+                            {errors.name && <span className="text-danger">This field is required</span>}
                         </div>
                         <div class="form-group">
 
-                            <input type="email" email="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Email Address" />
+                            <input type="email" ref={register({ required: true })} name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Email Address" />
+                            {errors.email && <span className="text-danger">This field is required</span>}
 
                         </div>
                         <div class="form-group">
 
-                            <input type="text" class="form-control" id="exampleInputPassword1" value={`${courseName}`} />
+                            <input type="text" ref={register({ required: true })} class="form-control" id="exampleInputPassword1" value={`${courseName}`} />
                         </div>
                         <div class="form-group">
                            
-                            <textarea type="text" style={{height:'100px'}} placeholder='Project Details' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea type="text" name="textarea" ref={register({ required: true })} style={{height:'100px'}} placeholder='Project Details' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                             {errors.textarea && <span className="text-danger">This field is required</span>}
                         </div>
                         <div class="form-group">
 
-                            <input style={{width: '150px'}} type="text" class="form-control" id="exampleInputPassword1" placeholder="Price" />  
+                            <input style={{width: '150px'}} type="text" name="price" ref={register({ required: true })} class="form-control" id="exampleInputPassword1" placeholder="Price" />  
+
+                            {errors.price && <span className="text-danger">This field is required</span>}
 
                            
                         </div>

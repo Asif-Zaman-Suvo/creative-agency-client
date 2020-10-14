@@ -3,7 +3,7 @@ import Web from '../../../images/icons/Web.png';
 import Graphics from '../../../images/icons/Graphics.png';
 import WebDev from '../../../images/icons/WebDev.png';
 import ServiceCard from '../ServiceCard/ServiceCard';
-import OrderForm from '../../OrderForm/OrderForm';
+
 
 
 let serviceList=[

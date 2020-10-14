@@ -6,8 +6,12 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import Dashboard from './Components/Dashboard/Dashboard';
 import Home from './Components/Home/Home/Home';
-import OrderPage from './Components/OrderPage/OrderPage';
+import Review from './Components/Review/Review';
+
+
+import ServiceList from './Components/ServiceList/ServiceList';
 
 function App() {
   return (
@@ -18,9 +22,18 @@ function App() {
 
         </Route>
 
-        <Route path='/order/:courseName'>
-          <OrderPage></OrderPage>
+        <Route path='/dashboard/:courseName'>
+          <Dashboard></Dashboard>
+          
 
+        </Route>
+
+        <Route path='/serviceList'>
+          <ServiceList></ServiceList>
+        </Route>
+
+        <Route path='/review'>
+          <Review></Review>
         </Route>
       </Switch>
     </Router>

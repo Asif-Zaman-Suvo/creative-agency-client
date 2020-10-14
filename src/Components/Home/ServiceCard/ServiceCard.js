@@ -5,7 +5,7 @@ import './ServiceCard.css';
 const ServiceCard = ({ service }) => {
     return (
 
-       <Link style={{textDecoration: 'none'}} to={`order/${service.name}`}>
+       <Link style={{textDecoration: 'none'}} to={ `dashboard/${service.name}`}>
             <div className='col-md-4 mt-5 mb-5'>
             <div style={{ width: '20em' }} className="service card py-5 d-flex justify-content-center align-items-center">
                 <img className="card-img-top" style={{ width: '74px', height: '74px' }} src={service.img} alt="Card image cap" />

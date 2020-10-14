@@ -3,7 +3,7 @@ import LeftSideBar from '../LeftSideBar/LeftSideBar';
 import OrderForm from '../OrderForm/OrderForm';
 
 
-const OrderPage = () => {
+const Dashboard = () => {
 
     return (
         <div className="container-fluid">
@@ -31,4 +31,4 @@ const OrderPage = () => {
     );
 };
 
-export default OrderPage;
+export default Dashboard;

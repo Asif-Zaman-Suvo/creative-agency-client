@@ -7,8 +7,22 @@ const OrderForm = () => {
 
     const { register, handleSubmit, errors } = useForm();
 
-    const onSubmit = data =>
-     console.log(data);
+    const onSubmit = data =>{
+        fetch('http://localhost:5000/addOrder',{
+            method:'POST',
+            headers:{'content-type':'application/json'},
+            body:JSON.stringify(data)
+        })
+
+        .then(res=>res.json())
+        .then(success=>{
+            if (success){
+                alert('Submitted Successfully')
+            }
+
+        })
+    }
+     
 
     const { courseName } = useParams()
     return (
@@ -31,12 +45,12 @@ const OrderForm = () => {
                         </div>
                         <div class="form-group">
 
-                            <input type="text" ref={register({ required: true })} class="form-control" id="exampleInputPassword1" value={`${courseName}`} />
+                            <input type="text" ref={register({ required: true })} class="form-control" id="exampleInputPassword1" name='service' defaultValue={courseName} />
                         </div>
                         <div class="form-group">
                            
-                            <textarea type="text" name="textarea" ref={register({ required: true })} style={{height:'100px'}} placeholder='Project Details' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                             {errors.textarea && <span className="text-danger">This field is required</span>}
+                            <textarea type="text" name="projectDetails" ref={register({ required: true })} style={{height:'100px'}} placeholder='Project Details' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                             {errors.projectDetails && <span className="text-danger">This field is required</span>}
                         </div>
                         <div class="form-group">
 

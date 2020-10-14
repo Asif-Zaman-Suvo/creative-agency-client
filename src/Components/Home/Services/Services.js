@@ -3,6 +3,7 @@ import Web from '../../../images/icons/Web.png';
 import Graphics from '../../../images/icons/Graphics.png';
 import WebDev from '../../../images/icons/WebDev.png';
 import ServiceCard from '../ServiceCard/ServiceCard';
+import OrderForm from '../../OrderForm/OrderForm';
 
 
 let serviceList=[
@@ -38,6 +39,8 @@ const Services = () => {
             {
                 serviceList.map((service) =><ServiceCard service={service}></ServiceCard>)
             }
+
+           
             
            </div>
             

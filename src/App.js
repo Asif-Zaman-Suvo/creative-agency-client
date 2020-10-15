@@ -7,10 +7,16 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
-import Dashboard from './Components/Dashboard/Dashboard';
+
 import Home from './Components/Home/Home/Home';
 import Login from './Components/LoginPage/Login';
 import PrivateRoute from './Components/LoginPage/PrivateRoute';
+
+import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
+import CustomerOrder from './Components/Dashboard/CustomerOrder/CustomerOrder';
+import ServiceList from './Components/Dashboard/ServiceList/ServiceList';
+import Review from './Components/Dashboard/Review/Review';
+
 
 
 export const UserContext = createContext();
@@ -38,8 +44,22 @@ function App() {
 
         </Route>
 
+        <Route path='/orderForm/'>
+          <CustomerOrder></CustomerOrder>
+        
+        </Route>
+
+        <Route path='/serviceList'>
+          <ServiceList></ServiceList>
+
+        </Route>
+
+        <Route path='/postReview'>
+          <Review></Review>
+        </Route>
+
         <PrivateRoute path='/dashboard/:courseName'>
-          <Dashboard></Dashboard>         
+          <Dashboard></Dashboard>    
         </PrivateRoute>
 
         <Route path='/login'>

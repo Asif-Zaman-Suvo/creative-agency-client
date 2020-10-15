@@ -1,0 +1,21 @@
+.logo-container{
+    margin-bottom: 10px;
+}
+.logo-img{
+  
+    width: 150px;
+    margin-top: 34px;
+    margin-left: 20px;
+}
+.icon-style{
+    margin-left:12px;
+    color: green !important;
+}
+.dashboard{
+    margin-left: 10px;
+    color: black!important;
+}
+.menu-item{
+    margin-bottom: 20px;
+    
+}

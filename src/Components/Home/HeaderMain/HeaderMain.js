@@ -9,7 +9,7 @@ const HeaderMain = () => {
             <h1 className='headerText'>Let's grow your<br></br> brand to the <br></br> next level</h1>
             <p className='headerParagraph'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero veritatis a sit eaque omnis recusandae, nisi consequuntur quia eligendi excepturi?</p>
 
-            <button className='hireButton'>HIRE US</button>
+            <button id='Portfolio' className='hireButton'>HIRE US</button>
 
 
         </div>

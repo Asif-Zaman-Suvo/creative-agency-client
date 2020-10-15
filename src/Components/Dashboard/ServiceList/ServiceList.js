@@ -1,37 +1,45 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../App';
 import LeftSideBar from '../LeftSideBar/LeftSideBar';
 import ServiceOrderList from '../ServiceOrderList/ServiceOrderList';
 
 
+
 const ServiceList = () => {
 
-    const [user] = useContext(UserContext)
+    const [user, setUser] = useContext(UserContext);
+    const { name, email, photoURL } = user
 
-    const [orderItem, setOrderItem] = useState([]);
+    const [service, setService] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/orders')
+            .then(response => response.json())
+            .then(data => setService(data))
+
+    }, [])
+
 
     return (
         <div className="row">
             <div className="col-md-3">
-            <LeftSideBar></LeftSideBar>
+                <LeftSideBar></LeftSideBar>
             </div>
-            <div className="col-md-9">
+            <div className="col-md-9  bg-light">
 
-                <h2 className="pt-5 ml-5" >Order History</h2>
+                <h2 className="pt-5 ml-5">Order History</h2>
+                <h3 className="ml-5">{name}</h3>
 
-                <div className="customFormStyle">
-                    <div className="bg-white p-5">
-                        <div className="">
-                            <img src="" alt="" />
-                            <h3>Web & Mobile design</h3>
-                            <p className="text-secondary">We craft stunning and amazing web UI, using a well drrafted UX to fit your product.</p>
-                        </div>
-                    </div>
-
+                <div className="container row">                   
+                        {
+                            service.map(ser => <ServiceOrderList ser={ser}></ServiceOrderList>)
+                        }                 
                 </div>
+
+
             </div>
 
-           
+
 
 
 

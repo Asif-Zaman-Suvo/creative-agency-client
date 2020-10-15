@@ -9,19 +9,14 @@ const PostReview = () => {
     const [user] = useContext(UserContext);
     // console.log('logged In User info', loggedInUser);
 
-    const { name, email, photoURL } = user;
 
 
-    const { register, handleSubmit, errors } = useForm({
-        defaultValues: {
-            name: name,
-            email:email
-        }
-    });
+
+    const { register, handleSubmit, errors } = useForm();
 
     const onSubmit = data => {
-       
-        fetch('http://localhost:5000//addReview', {
+        data.reviewTime = new Date();
+        fetch('http://localhost:5000/addReview', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -44,25 +39,31 @@ const PostReview = () => {
             </div>
             <div className="col-md-9">
 
-            <div className='container'>
+                <div className='container'>
                     <h2 style={{ fontFamily: 'poppins' }} className='mb-4 mt-3'>Review</h2>
 
                     <div className='row formSection'>
-                        <div className='col-md-8 py-5'>
+                        <div className='col-md-8 py-5 bg-light'>
                             <form className='p-4' onSubmit={handleSubmit(onSubmit)}>
                                 <div class="form-group">
 
-                                    <input type="text" ref={register({ required: true })} name="name" class="form-control" id="exampleInputPassword1" placeholder="Your Name/Company name" />
+                                    <input type="text" ref={register({ required: true })} name="name" class="form-control" id="exampleInputPassword1" placeholder="Your Name" />
                                     {errors.name && <span className="text-danger">This field is required</span>}
                                 </div>
-                                
-                               
+
+                                <div class="form-group">
+
+                                    <input type="text" ref={register({ required: true })} name="designation" class="form-control" id="exampleInputPassword1" placeholder="Company Name/Designation" />
+                                    {errors.designation && <span className="text-danger">This field is required</span>}
+                                </div>
+
+
                                 <div class="form-group">
 
                                     <textarea type="text" name="review" ref={register({ required: true })} style={{ height: '100px' }} placeholder='Maximum 100 Words' class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                     {errors.review && <span className="text-danger">This field is required</span>}
                                 </div>
-                                
+
 
                                 <button type="submit" class="hireButton">Submit</button>
                             </form>

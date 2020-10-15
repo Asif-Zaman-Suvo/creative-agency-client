@@ -46,26 +46,26 @@ const CustomerOrder = () => {
             </div>
             <div className="col-md-9">
 
-            <div className='container'>
+                <div className='container'>
                     <h2 style={{ fontFamily: 'poppins' }} className='mb-4 mt-3'>Order</h2>
 
                     <div className='row formSection'>
-                        <div className='col-md-8 py-5'>
+                        <div className='col-md-8 py-5 bg-light'>
                             <form className='p-4' onSubmit={handleSubmit(onSubmit)}>
                                 <div class="form-group">
 
-                                    <input type="text" ref={register({ required: true })} name="name" class="form-control" id="exampleInputPassword1" placeholder="Your Name/Company name" />
+                                    <input type="text" ref={register({ required: true })}  name="name" class="form-control" id="exampleInputPassword1" placeholder="Your Name/Company name" />
                                     {errors.name && <span className="text-danger">This field is required</span>}
                                 </div>
                                 <div class="form-group">
 
-                                    <input type="email" ref={register({ required: true })} name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Email Address" />
+                                    <input type="email" ref={register({ required: true })}  name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your Email Address" />
                                     {errors.email && <span className="text-danger">This field is required</span>}
 
                                 </div>
                                 <div class="form-group">
 
-                                    <input type="text" ref={register({ required: true })} class="form-control" id="exampleInputPassword1" name='service' defaultValue={courseName} />
+                                    <input type="text" ref={register({ required: true })} class="form-control" id="exampleInputPassword1" name='service' value={courseName} />
                                 </div>
                                 <div class="form-group">
 

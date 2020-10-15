@@ -1,38 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import FeedBackCard from '../FeedBackCard/FeedBackCard';
-import customer1 from '../../../images/customer-1.png';
-import customer2 from '../../../images/customer-2.png';
-import customer3 from '../../../images/customer-3.png';
 
-
-let feedbackList=[
-    {
-        name:'Nash Patrik',
-        img:customer1,
-        position:'CEO,Manpol',
-        description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis non pariatur magni aperiam harum! Illo!"
-
-    },
-
-    {
-        name:'Miriam Barron',
-        img:customer2,
-        position:'CEO,Manpol',
-        description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis non pariatur magni aperiam harum! Illo!"
-
-    },
-
-    {
-        name:'Bria Malone',
-        img:customer3,
-        position:'CEO,Manpol',
-        description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis non pariatur magni aperiam harum! Illo!"
-
-    },
-
-]  
 
 const FeedBack = () => {
+
+    const [reviews,setReviews]=useState([])
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/reviews')
+
+        .then(response=>response.json())
+        .then(data=>setReviews(data))
+    },[])
+
     return (
         <div className='container'>
             
@@ -40,7 +20,7 @@ const FeedBack = () => {
        
        <div className='row'>
         {
-            feedbackList.map((feedback) =><FeedBackCard feedback={feedback}></FeedBackCard>)
+            reviews.map((feedback) =><FeedBackCard feedback={feedback}></FeedBackCard>)
         }
         
        </div>

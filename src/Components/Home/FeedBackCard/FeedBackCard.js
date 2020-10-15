@@ -1,5 +1,6 @@
 import React from 'react';
 import './FeedBackCard.css';
+import customer1 from '../../../images/customer-2.png';
 
 const FeedBackCard = ({ feedback }) => {
     return (
@@ -10,13 +11,13 @@ const FeedBackCard = ({ feedback }) => {
                <div className="row py-2">
                     
                     <div className="col-md-3 mt-2">
-                        <img style={{ width: '74px', height: '74px' }} className="card-img-top " src={feedback.img} />
+                        <img style={{ width: '74px', height: '74px' }} className="card-img-top " src={customer1} />
                     </div>
 
                     <div className='col-md-9 mt-3'>
                         <h5 style={{fontFamily:'poppins'}}>{feedback.name}</h5>
 
-                        <h6 style={{fontFamily:'poppins'}}>{feedback.position}</h6>
+                        <h6 style={{fontFamily:'poppins'}}>{feedback.designation}</h6>
                     </div>
 
                
@@ -24,7 +25,7 @@ const FeedBackCard = ({ feedback }) => {
                </div>
                 <div class="card-body">
 
-                    <p style={{color:'#707070'}} class="card-text">{feedback.description}</p>
+                    <p style={{color:'#707070'}} class="card-text">{feedback.review}</p>
                 </div>
             </div>
         </div>

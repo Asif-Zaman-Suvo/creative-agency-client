@@ -6,7 +6,7 @@ import LeftSideBar from '../LeftSideBar/LeftSideBar';
 
 const PostReview = () => {
 
-    const [user] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
     // console.log('logged In User info', loggedInUser);
 
 
@@ -44,6 +44,7 @@ const PostReview = () => {
 
                     <div className='row formSection'>
                         <div className='col-md-8 py-5 bg-light'>
+                            
                             <form className='p-4' onSubmit={handleSubmit(onSubmit)}>
                                 <div class="form-group">
 

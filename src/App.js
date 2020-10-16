@@ -16,6 +16,9 @@ import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import CustomerOrder from './Components/Dashboard/CustomerOrder/CustomerOrder';
 import ServiceList from './Components/Dashboard/ServiceList/ServiceList';
 import Review from './Components/Dashboard/Review/Review';
+import AdminPage from './Components/Dashboard/AdminPage/AdminPage';
+import AddService from './Components/Dashboard/AddService/AddService';
+
 
 
 
@@ -23,20 +26,12 @@ export const UserContext = createContext();
 
 function App() {
 
-  
 
-  const defaultUser = {
-    isSignedIn: false,
-    name: '',
-    email: '',
-    photo: '',
-    message: ''
-  }
-  const [user, setUser] = useState(defaultUser);
+  const [loggedInUser, setLoggedInUser] = useState({});
 
   return (
 
-    <UserContext.Provider value={[user,setUser]}>
+    <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
     <Router>
       <Switch>
         <Route exact path='/'>
@@ -44,23 +39,31 @@ function App() {
 
         </Route>
 
-        <Route path='/orderForm/'>
+        <PrivateRoute path='/orderForm/'>
           <CustomerOrder></CustomerOrder>
         
-        </Route>
+        </PrivateRoute>
 
-        <Route path='/serviceList'>
+        <PrivateRoute path='/serviceList'>
           <ServiceList></ServiceList>
 
-        </Route>
+        </PrivateRoute>
 
-        <Route path='/postReview'>
+        <PrivateRoute path='/postReview'>
           <Review></Review>
-        </Route>
+        </PrivateRoute>
 
         <PrivateRoute path='/dashboard/:courseName'>
           <Dashboard></Dashboard>    
         </PrivateRoute>
+
+        <PrivateRoute path='/admin'>
+          <AdminPage></AdminPage>
+        </PrivateRoute>
+
+        <Route path='/addService'>
+          <AddService></AddService>
+        </Route>
 
         <Route path='/login'>
           <Login></Login>

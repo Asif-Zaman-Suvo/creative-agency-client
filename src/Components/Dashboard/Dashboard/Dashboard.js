@@ -13,8 +13,8 @@ const Dashboard = () => {
                 </div>
                 <div  className="col-md-10">
                     <span className="d-flex">
-                        <h3 style={{'margin-left':'80px', 'margin-top':'50px'}}>Ordered Items</h3>
-                        <h6 style={{'margin-left':'580px', 'margin-top':'50px'}}>{user.name}</h6>
+                        <h3 style={{'margin-left':'80px', 'margin-top':'50px'}}>{user.name}</h3>
+                        
                     </span>
                     
                     <div className="row customer-order-list">

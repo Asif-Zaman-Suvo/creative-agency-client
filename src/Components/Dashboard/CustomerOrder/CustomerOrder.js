@@ -10,7 +10,7 @@ import './CustomerOrder.css';
 const CustomerOrder = () => {
 
     const { courseName } = useParams()
-    const [user, setUser] = useContext(UserContext)
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
 
     const { register, handleSubmit, errors } = useForm();
@@ -65,7 +65,7 @@ const CustomerOrder = () => {
                                 </div>
                                 <div class="form-group">
 
-                                    <input type="text" ref={register({ required: true })} class="form-control" id="exampleInputPassword1" name='service' value={courseName} />
+                                    <input type="text" ref={register({ required: true })} class="form-control" id="exampleInputPassword1" name='service' defaultValue={courseName} />
                                 </div>
                                 <div class="form-group">
 

@@ -9,12 +9,12 @@ import googleLogo from '../../images/logos/googleLogo.png';
 import firebaseConfig from './firebase.config';
 
 
-firebase.initializeApp(firebaseConfig);
+
 
 const Login = () => {
 
 
-    const [user, setUser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
@@ -25,27 +25,48 @@ const Login = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
+
+        if (firebase.apps.length === 0) {
+            firebase.initializeApp(firebaseConfig);
+        }
+
+
         firebase.auth().signInWithPopup(provider)
             .then(result => {
                 const { displayName, email, photoURL } = result.user;
-                const newUser = {
+                const signedInUser = {
                     isSignedIn: true,
                     name: displayName,
                     email: email,
                     photo: photoURL,
                     message: "Logged in successfully"
                 }
-                setUser(newUser);
+                setLoggedInUser(signedInUser);
+                storeAuthToken();
 
                 history.replace(from);
             })
             .catch(error => {
                 const newUser = { message: error.message };
-                setUser(newUser);
+                setLoggedInUser(newUser);
             });
 
 
     }
+
+
+    const storeAuthToken=()=>{
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+        .then(function(idToken) {
+            sessionStorage.setItem('token',idToken);
+            
+          }).catch(function(error) {
+            // Handle error
+          });
+
+    }
+
+
     return (
         <div className="container text-center py-5 mt-3">
             <Link to="/">
@@ -64,7 +85,7 @@ const Login = () => {
                </div>
 
                 <h6 className="mt-3">Don't have an account?<button onClick={handleGoogleSignIn} className="btn btn-link mb-2">Create an account</button></h6>
-                <h4 className="text-danger mt-5">{user.message}</h4>
+                <h4 className="text-danger mt-5">{loggedInUser.message}</h4>
 
             </div>
                 <div className="col-md-3"></div>

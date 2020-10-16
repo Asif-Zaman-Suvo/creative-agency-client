@@ -7,13 +7,20 @@ import ServiceOrderList from '../ServiceOrderList/ServiceOrderList';
 
 const ServiceList = () => {
 
-    const [user, setUser] = useContext(UserContext);
-    const { name, email, photoURL } = user
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const { name, email, photoURL } = loggedInUser
 
     const [service, setService] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('http://localhost:5000/orders?email='+loggedInUser.email,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('token')}`
+            }
+
+        })
             .then(response => response.json())
             .then(data => setService(data))
 
@@ -31,9 +38,11 @@ const ServiceList = () => {
                 <h3 className="ml-5">{name}</h3>
 
                 <div className="container row">                   
-                        {
+                       
+                       {
                             service.map(ser => <ServiceOrderList ser={ser}></ServiceOrderList>)
-                        }                 
+                        }         
+                      
                 </div>
 
 

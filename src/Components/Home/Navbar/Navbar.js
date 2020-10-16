@@ -26,7 +26,7 @@ const Navbar = () => {
                    </li>
 
                    <li class="nav-item">
-                      <Link style={{ textDecoration: 'none' }} to="/login"> <button class="hireButton">Login</button></Link>
+                      <Link style={{ textDecoration: 'none' }} to="/dashboard/:courseName"> <button class="hireButton">Login</button></Link>
                    </li>
                   
                     

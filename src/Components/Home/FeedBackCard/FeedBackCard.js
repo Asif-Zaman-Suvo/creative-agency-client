@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './FeedBackCard.css';
 import customer1 from '../../../images/customer-2.png';
+import { UserContext } from '../../../App';
 
 const FeedBackCard = ({ feedback }) => {
+
+    const [user]=useContext(UserContext)
     return (
         <div className='col-md-4 mt-4'>
             <div className="feedback card" style={{ width: '20rem' }}>
@@ -11,7 +14,7 @@ const FeedBackCard = ({ feedback }) => {
                <div className="row py-2">
                     
                     <div className="col-md-3 mt-2">
-                        <img style={{ width: '74px', height: '74px' }} className="card-img-top " src={customer1} />
+                        <img style={{ width: '74px', height: '74px' }} className="card-img-top " src={user.displayPhoto} />
                     </div>
 
                     <div className='col-md-9 mt-3'>

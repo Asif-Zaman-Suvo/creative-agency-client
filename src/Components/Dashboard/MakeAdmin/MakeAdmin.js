@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     const { name, email, photoURL } = loggedInUser;
 
     const onSubmit = data => {
-        fetch('http://localhost:5000/adminEmail', {
+        fetch('https://polar-earth-67431.herokuapp.com/adminEmail', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

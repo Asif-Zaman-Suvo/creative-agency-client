@@ -34,7 +34,7 @@ const Services = () => {
     const [service,setService] =useState([])
 
     useEffect(() =>{
-        fetch('http://localhost:5000/getServices')
+        fetch('https://polar-earth-67431.herokuapp.com/getServices')
         .then(response => response.json())
         .then(data =>setService(data))
 

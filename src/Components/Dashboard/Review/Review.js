@@ -16,7 +16,7 @@ const PostReview = () => {
 
     const onSubmit = data => {
         data.reviewTime = new Date();
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://polar-earth-67431.herokuapp.com/addReview', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

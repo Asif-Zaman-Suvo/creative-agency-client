@@ -13,7 +13,7 @@ const ServiceList = () => {
     const [service, setService] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders?email='+loggedInUser.email,{
+        fetch('https://polar-earth-67431.herokuapp.com/orders?email='+loggedInUser.email,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

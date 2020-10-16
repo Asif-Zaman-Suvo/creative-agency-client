@@ -30,7 +30,7 @@ const AddService = () => {
         formData.append('serviceTitle',addService.serviceTitle)
         formData.append('description',addService.description)
 
-        fetch ('http://localhost:5000/addAService',{
+        fetch ('https://polar-earth-67431.herokuapp.com/addAService',{
             method: 'POST',
             body: formData
         })

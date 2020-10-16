@@ -5,7 +5,7 @@ import './Navbar.css';
 
 const Navbar = () => {
     return (
-        <section className="container">
+        <div className="container">
             <nav class="navbar navbar-expand-lg navbar-light">
             <img style={{width:'150px',height:'47px'}} src={logo} alt=""/>
            
@@ -35,7 +35,7 @@ const Navbar = () => {
 
            </div>
        </nav>
-        </section>
+        </div>
     );
 };
 

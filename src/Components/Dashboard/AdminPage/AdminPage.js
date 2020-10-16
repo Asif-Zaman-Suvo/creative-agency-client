@@ -1,5 +1,6 @@
 import React from 'react';
 import AllOrder from '../AllOrder/AllOrder';
+import AllOrderList from '../AllOrderList/AllOrderList';
 import LeftSideBar from '../LeftSideBar/LeftSideBar';
 
 const AdminPage = () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Web from '../../../images/icons/Web.png';
 import Graphics from '../../../images/icons/Graphics.png';
 import WebDev from '../../../images/icons/WebDev.png';
@@ -30,6 +30,18 @@ let serviceList=[
 ]  
 
 const Services = () => {
+
+    const [service,setService] =useState([])
+
+    useEffect(() =>{
+        fetch('http://localhost:5000/getServices')
+        .then(response => response.json())
+        .then(data =>setService(data))
+
+    },[])
+
+
+
     return (
         <div id="Portfolio" className='container'>
             
@@ -37,7 +49,7 @@ const Services = () => {
            
            <div className='row'>
             {
-                serviceList.map((service) =><ServiceCard service={service}></ServiceCard>)
+                service.map((info) =><ServiceCard key={info._id} info={info}></ServiceCard>)
             }
 
            

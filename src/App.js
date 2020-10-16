@@ -18,6 +18,7 @@ import ServiceList from './Components/Dashboard/ServiceList/ServiceList';
 import Review from './Components/Dashboard/Review/Review';
 import AdminPage from './Components/Dashboard/AdminPage/AdminPage';
 import AddService from './Components/Dashboard/AddService/AddService';
+import MakeAdmin from './Components/Dashboard/MakeAdmin/MakeAdmin';
 
 
 
@@ -57,12 +58,16 @@ function App() {
           <Dashboard></Dashboard>    
         </PrivateRoute>
 
-        <PrivateRoute path='/admin'>
+        <Route path='/admin'>
           <AdminPage></AdminPage>
-        </PrivateRoute>
+        </Route>
 
         <Route path='/addService'>
           <AddService></AddService>
+        </Route>
+
+        <Route path='/makeAdmin'>
+          <MakeAdmin></MakeAdmin>
         </Route>
 
         <Route path='/login'>

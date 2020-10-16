@@ -6,13 +6,13 @@ const Footer = () => {
         <footer id='Contact' className='final'>
             <div className='container mb-5'>
                 <div className='row'>
-                    <div className='col-md-5 mt-5'>
+                    <div className='col-md-5 col-sm-6 mt-5'>
                         <h1 className='footerHeader mt-5 mb-4'>Let us handle your <br></br> project, professionally.</h1>
                         <p className='footerParagraph'>With well written codes, we build amazing apps for all platforms, mobile and web apps in general.</p>
 
                     </div>
 
-                    <div className='col-md-6 mt-5 offset-md-1'>
+                    <div className='col-md-6 col-sm-6 mt-5 offset-md-1'>
 
                         <form>
                             <div class="form-group mt-5">
@@ -38,7 +38,7 @@ const Footer = () => {
 
             </div>
 
-           <p style={{ color:'#4B3E1D'}} className='text-center mt-5'>copyright Orange Labs 2020</p>
+           <p style={{ color:'#4B3E1D'}} className='footerCopy text-center'>copyright Orange Labs 2020</p>
 
         </footer>
     );

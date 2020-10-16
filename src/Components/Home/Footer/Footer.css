@@ -1,6 +1,7 @@
 .final{
     background-color: #FBD062;
     height: 600px;
+    
 }
 
 .footerHeader{
@@ -25,5 +26,10 @@ color: rgba(0, 0, 0, 0.7);
 
 
 #exampleFormControlTextarea1{
-    height: 250px;
+    height: 100px;
+}
+
+.footerCopy{
+    margin-top: 9%;
+    
 }
